@@ -1,0 +1,53 @@
+create table employee(
+emp_id int primary key,
+emp_name varchar(50),
+department varchar(50),
+salary int
+);
+
+create table bonus(
+emp_id int,
+bonus int,
+foreign key (emp_id) references employee(emp_id));
+
+INSERT INTO employee (emp_id, emp_name, department, salary) VALUES
+(1, 'Alice', 'HR', 5000),
+(2, 'Bob', 'Sales', 7000),
+(3, 'Charlie', 'Sales', 6000),
+(4, 'David', 'HR', 5500),
+(5, 'Eve', 'IT', 9000),
+(6, 'Frank', 'Marketing', 6200),
+(7, 'Grace', 'IT', 8800),
+(8, 'Hank', 'Finance', 7700),
+(9, 'Ivy', 'Marketing', 6600),
+(10, 'Jack', 'Finance', 7100);
+
+INSERT INTO bonus (emp_id, bonus) VALUES
+(1, 500),
+(2, 1000),
+(3, 800),
+(4, NULL),
+(5, 1200),
+(6, 900),
+(7, NULL),
+(8, 1100),
+(9, 600),
+(10, 750);
+
+select * from employee;
+select * from bonus;
+
+update bonus set bonus = 0 where bonus = NULL;
+
+select employee.emp_name,employee.department, employee.salary+ifnull(bonus.bonus,0) as total_compensation from employee
+left join bonus on employee.emp_id = bonus.emp_id;
+
+
+
+
+
+
+
+
+
+
