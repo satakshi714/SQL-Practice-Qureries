@@ -1,0 +1,19 @@
+You are given the following two tables:
+Table: employee
+emp_id(int)	emp_name(varchar)	department(varchar)	salary(int
+
+Table: bonus
+emp_id(int)	bonus(int)
+
+The bonus table has a foreign key referencing employee(emp_id).
+Some employees may not have a bonus, resulting in NULL values.
+Write an SQL query to display the following for all employees:
+•	Employee name (emp_name)
+•	Department (department)
+•	Total compensation (calculated as salary + bonus)
+
+Note:
+If the bonus is NULL, it should be treated as 0 during the calculation of total compensation.
+The output should display columns as:
+emp_name, department, total_compensation.
+
