@@ -1,3 +1,4 @@
+-----------------------------------------Answer 1--------------------------------------
 create table employee(
 emp_id int primary key,
 emp_name varchar(50),
@@ -41,6 +42,32 @@ update bonus set bonus = 0 where bonus = NULL;
 
 select employee.emp_name,employee.department, employee.salary+ifnull(bonus.bonus,0) as total_compensation from employee
 left join bonus on employee.emp_id = bonus.emp_id;
+
+
+-----------------------------------------Answer 2--------------------------------------
+
+create table employee(
+emp_id int primary key,
+name varchar(50),
+salary int,
+dep_id int);
+
+insert into employee values(1, "Alice", 30000, 101);
+insert into employee values(2, "Bob", 40000, 102);
+insert into employee values(3, "Charlie", 50000, 103);
+insert into employee values(4, "David", 45000, 101);
+insert into employee values(5, "Eve", 65000, 104);
+insert into employee values(6, "Florence", 55000, 103);
+insert into employee values(7, "Gwen", 35000, 101);
+insert into employee values(8, "Harry", 43000, 102);
+insert into employee values(9, "Ingrid", 45000, 103);
+insert into employee values(10, "Jack", 37000, 101);
+insert into employee values(11, "Keith", 60000, 104);
+insert into employee values(12, "Lawrence", 59000, 103);
+select * from employee;
+
+select emp_id, name, salary, dep_id from employee e 
+where salary > (select avg(salary) from employee where dep_id = e.dep_id);
 
 
 
