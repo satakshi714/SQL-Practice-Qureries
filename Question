@@ -34,3 +34,16 @@ Name
 Salary
 DepartmentID
 
+
+Question 3:
+You are given a table Sales with columns:
+SaleID (int)
+EmployeeID (int)
+SaleAmount (decimal)
+SaleDate (date)
+
+Write a SQL query to find the top 2 highest sales for each employee. Return:
+EmployeeID
+SaleID
+SaleAmount
+
